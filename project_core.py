@@ -76,6 +76,14 @@ def download_stock_data(ticker: str, lookback_days: int = 365) -> pd.DataFrame:
     return stock_data
 
 
+def build_stock_universe(tickers: list[str], lookback_days: int = 365 * 3) -> pd.DataFrame:
+    """Download and combine historical price data for multiple tickers."""
+    frames = [download_stock_data(ticker, lookback_days=lookback_days) for ticker in tickers]
+    combined = pd.concat(frames, ignore_index=True)
+    combined["Date"] = pd.to_datetime(combined["Date"])
+    return combined.sort_values(["Date", "Ticker"]).reset_index(drop=True)
+
+
 def clean_stock_data(df: pd.DataFrame) -> pd.DataFrame:
     """Sort, deduplicate, and fill missing price values."""
     data = normalize_downloaded_columns(df).copy()

@@ -15,6 +15,7 @@ Docker is not included in this submission.
 - Target: `1` if the next trading day's close is higher than the current close, otherwise `0`
 - Main deployment: Streamlit application running on localhost
 - Bonus deployment: Flask REST API running on localhost
+- Power BI/tabular export: cleaned CSV created right after the data-cleaning step
 
 ## Main Features
 
@@ -34,10 +35,12 @@ DataScienceFinalPrj/
 ├── Stock_Market_Prediction.ipynb   # Main notebook following the assignment steps
 ├── app.py                          # Streamlit application
 ├── flask_api.py                    # Bonus Flask REST API
+├── export_cleaned_data.py          # Exports a cleaned CSV for Power BI or tabular analysis
 ├── project_core.py                 # Shared data preparation and prediction utilities
 ├── requirements.txt                # Python dependencies
 ├── README.md                       # Project documentation
 ├── Data Science Certification Task.pdf
+├── cleaned_stock_data.csv          # Cleaned dataset for Power BI / tabular tools
 ├── stock_prediction_model.pkl      # Generated after training
 ├── scaler.pkl                      # Generated after training
 ├── feature_names.txt               # Generated after training
@@ -72,6 +75,12 @@ flask --app flask_api run
 
 5. If the model files do not exist yet, run the notebook through Step 7 first so the saved artifacts are created.
 
+6. Optional: regenerate the cleaned CSV for Power BI or tabular analysis:
+
+```bash
+py export_cleaned_data.py
+```
+
 ## Workflow Covered In The Notebook
 
 1. Data Collection and Exploration
@@ -88,6 +97,7 @@ flask --app flask_api run
 
 - Data collection and initial exploration: covered in the notebook with dataset shape, data types, summary statistics, and missing-value checks.
 - Data cleaning and transformation: covered with missing-value handling, outlier detection/treatment, encoding, scaling, and feature engineering.
+- Power BI/tabular dataset: `cleaned_stock_data.csv` is exported after cleaning so it stays easy to analyze outside the model pipeline.
 - EDA: covered with Matplotlib and Seaborn visualizations plus short findings.
 - Feature selection: covered with feature importance and correlation-based reduction.
 - Model development: covered with train/test split, multiple algorithms, training, and metric comparison.
@@ -105,6 +115,7 @@ flask --app flask_api run
 - The submission is centered on the two required deliverables: one notebook and one Streamlit app.
 - The optional Flask API is included as an extra bonus feature.
 - Docker is intentionally excluded because this submission uses the Flask and additional-model bonus options instead.
+- The cleaned CSV is saved before feature engineering and modeling so it remains more useful for dashboards and tabular reporting.
 
 ## Important Note
 
