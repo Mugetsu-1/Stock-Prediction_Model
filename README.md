@@ -1,12 +1,10 @@
 # Stock Market Price Movement Prediction
 
-This project is a complete data science workflow that predicts whether a stock will move up or down on the next trading day. It follows the structure requested in the certification PDF: data collection, cleaning, transformation, EDA, feature selection, model development, evaluation, hyperparameter tuning, and Streamlit deployment on localhost.
+This project is a complete data science workflow that predicts whether a stock will move up or down on the next trading day. It follows the assignment structure: data collection, cleaning, transformation, EDA, feature selection, model development, evaluation, hyperparameter tuning, and Streamlit deployment on localhost.
 
-This version also includes two bonus items from the PDF:
-- additional model comparison in the notebook
-- a simple Flask REST API for predictions
-
-Docker is not included in this submission.
+This submission focuses on the core required deliverables in `Objective.md`:
+- full notebook workflow
+- Streamlit deployment on localhost
 
 ## Project Scope
 
@@ -14,7 +12,6 @@ Docker is not included in this submission.
 - Problem type: Binary classification
 - Target: `1` if the next trading day's close is higher than the current close, otherwise `0`
 - Main deployment: Streamlit application running on localhost
-- Bonus deployment: Flask REST API running on localhost
 - Power BI/tabular export: cleaned CSV created right after the data-cleaning step
 
 ## Main Features
@@ -26,7 +23,6 @@ Docker is not included in this submission.
 - Multiple baseline models compared before tuning the best candidate
 - Time-aware validation using date-based splitting and time-series cross-validation
 - Streamlit app for live prediction on the latest downloaded market data
-- Optional Flask API for REST-style prediction requests
 
 ## Project Files
 
@@ -34,12 +30,9 @@ Docker is not included in this submission.
 DataScienceFinalPrj/
 ├── Stock_Market_Prediction.ipynb   # Main notebook following the assignment steps
 ├── app.py                          # Streamlit application
-├── flask_api.py                    # Bonus Flask REST API
-├── export_cleaned_data.py          # Exports a cleaned CSV for Power BI or tabular analysis
-├── project_core.py                 # Shared data preparation and prediction utilities
 ├── requirements.txt                # Python dependencies
 ├── README.md                       # Project documentation
-├── Data Science Certification Task.pdf
+├── Objective.md                     # Assignment objective and required steps
 ├── cleaned_stock_data.csv          # Cleaned dataset for Power BI / tabular tools
 ├── stock_prediction_model.pkl      # Generated after training
 ├── scaler.pkl                      # Generated after training
@@ -67,19 +60,7 @@ jupyter notebook
 streamlit run app.py
 ```
 
-4. Optional bonus: start the Flask API:
-
-```bash
-flask --app flask_api run
-```
-
-5. If the model files do not exist yet, run the notebook through Step 7 first so the saved artifacts are created.
-
-6. Optional: regenerate the cleaned CSV for Power BI or tabular analysis:
-
-```bash
-py export_cleaned_data.py
-```
+4. If the model files do not exist yet, run the notebook through Step 7 first so the saved artifacts are created.
 
 ## Workflow Covered In The Notebook
 
@@ -91,7 +72,7 @@ py export_cleaned_data.py
 6. Model Evaluation and Hyperparameter Tuning
 7. Saving The Final Model
 8. Streamlit Deployment Instructions
-9. Bonus Notes For Additional Models And Flask API
+9. Final Notes
 
 ## Assignment Checklist
 
@@ -113,8 +94,6 @@ py export_cleaned_data.py
 - Cross-validation is also time-aware.
 - The final saved artifacts are shared by the notebook and the Streamlit app.
 - The submission is centered on the two required deliverables: one notebook and one Streamlit app.
-- The optional Flask API is included as an extra bonus feature.
-- Docker is intentionally excluded because this submission uses the Flask and additional-model bonus options instead.
 - The cleaned CSV is saved before feature engineering and modeling so it remains more useful for dashboards and tabular reporting.
 
 ## Important Note
