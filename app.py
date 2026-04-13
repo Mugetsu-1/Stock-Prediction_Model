@@ -164,7 +164,19 @@ def build_indicator_data(ticker: str) -> pd.DataFrame:
 def latest_feature_row(ticker: str, features: list[str]) -> tuple[pd.DataFrame, pd.DataFrame]:
     model_data = build_indicator_data(ticker)
 
-    x = model_data.reindex(columns=features).ffill().bfill().fillna(0.0)
+    feature_frame = model_data.copy()
+    dow_int = feature_frame["Day_Of_Week"].round().astype(int)
+
+    # Populate encoded categorical columns expected by trained artifacts.
+    for feature_name in features:
+        if feature_name.startswith("DOW_"):
+            suffix = feature_name.replace("DOW_", "", 1)
+            if suffix.isdigit():
+                feature_frame[feature_name] = (dow_int == int(suffix)).astype(float)
+        elif feature_name.startswith("Ticker_"):
+            feature_frame[feature_name] = float(feature_name == f"Ticker_{ticker}")
+
+    x = feature_frame.reindex(columns=features).ffill().bfill().fillna(0.0)
     return x.tail(1), model_data
 
 
