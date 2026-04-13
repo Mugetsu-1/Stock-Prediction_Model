@@ -55,16 +55,19 @@ Streamlit App (app.py)
 ## 4. Artifacts Contract
 
 Daily (1d):
+
 - `stock_prediction_model.pkl`
 - `scaler.pkl`
 - `model_info.pkl`
 
 Weekly (5d):
+
 - `stock_prediction_model_weekly.pkl`
 - `scaler_weekly.pkl`
 - `model_info_weekly.pkl`
 
 Shared:
+
 - `cleaned_stock_data.csv`
 
 ## 5. Design Principles

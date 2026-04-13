@@ -3,16 +3,19 @@
 ## Project Goal
 
 Predict whether stock price direction will be **UP** or **DOWN** for:
+
 - Next trading day (1d)
 - Next trading week (5d)
 
 This project follows the formal objective workflow and keeps implementation clean:
+
 - Notebook for all data science work
 - Streamlit app for inference UI only
 
 ## Notebook Responsibilities
 
 `Stock_Market_Prediction.ipynb` handles:
+
 1. Data loading from Yahoo Finance
 2. Data cleaning and transformation
 3. EDA and key visual analysis
@@ -31,6 +34,7 @@ This project follows the formal objective workflow and keeps implementation clea
 ## Streamlit Responsibilities
 
 `app.py` handles:
+
 - Loading saved artifacts
 - Live ticker selection and prediction
 - Classical ML inference and ARIMA benchmark mode
